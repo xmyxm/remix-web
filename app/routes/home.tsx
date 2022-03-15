@@ -21,11 +21,6 @@ export default function Index() {
             测试2
           </a>
         </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
       </ul>
     </div>
   );
