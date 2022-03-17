@@ -1,7 +1,19 @@
+import type { LinksFunction } from "remix";
+import indexCssUrl from "../styles/index.css";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: indexCssUrl,
+    },
+  ];
+};
+
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <div className="index-page">
+      <h1 style={{ textAlign: "center" }}>首页</h1>
       <ul>
         <li>
           <a
