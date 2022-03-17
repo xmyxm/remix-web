@@ -1,0 +1,49 @@
+.name-text {
+  color: black;
+  margin-right: 5px;
+}
+
+.name-val {
+  padding: 0 4px;
+  width: 160px;
+  min-width: 0;
+  text-decoration-color: rgb(31, 34, 37);
+  color: #333639;
+  caret-color: #18a058;
+  background-color: transparent;
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: 1.5;
+  font-family: inherit;
+  outline: none;
+  background-color: #0000;
+  text-align: inherit;
+  border: 1px solid #e0e0e6;
+}
+
+button {
+  margin: 10px auto;
+  line-height: 1;
+  font-family: inherit;
+  padding: 0 14px;
+  height: 34px;
+  font-size: 14;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #18a058;
+  width: initial;
+  white-space: nowrap;
+  outline: none;
+  position: relative;
+  z-index: auto;
+  border: none;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
