@@ -1,5 +1,5 @@
-import type { LinksFunction, MetaFunction } from "remix";
-
+import type { LinksFunction, MetaFunction, LoaderFunction } from "remix";
+import { Link, json, useLoaderData } from "remix";
 import globalStylesUrl from "../styles/global.css";
 import globalMediumStylesUrl from "../styles/global-medium.css";
 import globalLargeStylesUrl from "../styles/global-large.css";
@@ -37,6 +37,39 @@ export const meta: MetaFunction = () => {
   };
 };
 
+type ResData = {
+  title: string;
+  content: string;
+};
+
+// 这里的loader是被后端API钩子useLoaderData调用的，所以看不到使用
+export const loader: LoaderFunction = async () => {
+  const data: ResData = {
+    title: "SSR",
+    content: "同构页面",
+  };
+  return json(data);
+};
+
 export default function App() {
-  return <div>hhhhhhhhh</div>;
+  const { title, content } = useLoaderData<ResData>();
+
+  return (
+    <main className="main">
+      <h1 className="title">
+        Welcome to <a>Remix!</a>
+      </h1>
+
+      <p className="description">
+        同构 <code className="code">app/routes/ssr.tsx</code>
+      </p>
+
+      <div className="grid">
+        <Link to="/" className="card">
+          <h2>{title} &rarr;</h2>
+          <p>{content}</p>
+        </Link>
+      </div>
+    </main>
+  );
 }

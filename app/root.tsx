@@ -7,12 +7,23 @@ import {
   ScrollRestoration,
   useCatch,
 } from "remix";
-import type { MetaFunction } from "remix";
+import type { MetaFunction, LinksFunction } from "remix";
+import rootCssUrl from "./styles/root.css";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: rootCssUrl,
+    },
+  ];
+};
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
 };
 
+// <Script /> 标签决定了我们页面是否引入样式文件
 export default function App() {
   return (
     <html lang="en">
