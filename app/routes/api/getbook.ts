@@ -1,6 +1,6 @@
 import { json, LoaderFunction } from "remix";
 
-// 接口请求
+// get 接口请求
 export const loader: LoaderFunction = async ({ request }) => {
   const rssString = {
     code: 200,
