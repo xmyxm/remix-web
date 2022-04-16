@@ -5,7 +5,7 @@ export const action: LoaderFunction = async ({ request }) => {
   const rssString = {
     code: 200,
     data: {
-      dateTime: `服务端时间：${Date.now()}`,
+      dateTime: `${Date.now()}`,
     },
     message: "成功",
   };

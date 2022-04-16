@@ -27,7 +27,6 @@ export default function ResumeIndex() {
   
   const btnClick = useCallback(() => { 
     axios.post('/api/posttime').then(res => {
-      debugger
       if (res?.data?.data?.dateTime) {
         setDateTime(res.data.data)
       }
@@ -46,7 +45,7 @@ export default function ResumeIndex() {
 
     <div className="grid">
       <div className="card">
-        <h2>前端 &rarr;</h2>
+        <h2>基本实现 &rarr;</h2>
           <p>
             {
               resume.skills.map((skill, index) => (
@@ -57,11 +56,14 @@ export default function ResumeIndex() {
               ))
             }
           </p>
+        </div>
+        <div className="card">
+          <h2>拉取数据 &rarr;</h2>
           <p>
             <span onClick={btnClick} className="btn">
-              Submit
+                Submit
             </span>
-            <span>{ dateInfo.dateTime }</span>
+            <span> { dateInfo.dateTime }</span>
           </p>
       </div>
     </div>
