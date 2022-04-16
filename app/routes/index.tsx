@@ -14,7 +14,12 @@ export const links: LinksFunction = () => {
 const entryList = [
   {
     title: "SSR",
-    content: "同构页面",
+    content: "SSR页面",
+    src: "/ssr",
+  },
+  {
+    title: "SEO",
+    content: "SEO页面",
     src: "/seo",
   },
 ];
