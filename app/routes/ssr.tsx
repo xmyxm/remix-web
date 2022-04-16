@@ -26,12 +26,10 @@ export default function ResumeIndex() {
   const [dateInfo, setDateTime] = useState({ dateTime: '' })
   
   const btnClick = useCallback(() => { 
-    axios.post('/api/postid').then(res => {
-      if (res?.data) {
-        // const { code, data } = res.data;
-        debugger
-        console.log('接口返回')
-        console.log(res)
+    axios.post('/api/posttime').then(res => {
+      debugger
+      if (res?.data?.data?.dateTime) {
+        setDateTime(res.data.data)
       }
     });
   }, [])
@@ -47,7 +45,7 @@ export default function ResumeIndex() {
     </p>
 
     <div className="grid">
-      <Link to="/" className="card">
+      <div className="card">
         <h2>前端 &rarr;</h2>
           <p>
             {
@@ -60,12 +58,12 @@ export default function ResumeIndex() {
             }
           </p>
           <p>
-            <button onClick={btnClick} className="button">
+            <span onClick={btnClick} className="btn">
               Submit
-            </button>
+            </span>
             <span>{ dateInfo.dateTime }</span>
           </p>
-      </Link>
+      </div>
     </div>
   </main>
   );

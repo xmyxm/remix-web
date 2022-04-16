@@ -71,7 +71,7 @@ export default function Login() {
               name="username"
               defaultValue={name}
             />
-            <button type="submit" className="button">
+            <button type="submit" className="btn">
               Submit
             </button>
           </form>
