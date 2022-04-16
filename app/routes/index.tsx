@@ -14,13 +14,18 @@ export const links: LinksFunction = () => {
 const entryList = [
   {
     title: "SSR",
-    content: "SSR页面",
+    content: "服务器渲染",
     src: "/ssr",
   },
   {
     title: "SEO",
-    content: "SEO页面",
+    content: "Mate Data",
     src: "/seo",
+  },
+  {
+    title: "Form",
+    content: "表单提交",
+    src: "/form",
   },
 ];
 
@@ -32,7 +37,7 @@ export default function Index() {
       </h1>
 
       <p className="description">
-        默认首页 <code className="code">app/routes/index.tsx</code>
+        首页路由 <code className="code">app/routes/index.tsx</code>
       </p>
 
       <div className="grid">

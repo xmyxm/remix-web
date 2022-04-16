@@ -47,11 +47,11 @@ export default function Login() {
   return (
     <main className="main">
       <h1 className="title">
-        Welcome to <a>Remix!</a>
+        演示 <a>表单提交</a>
       </h1>
 
       <p className="description">
-        form <code className="code">app/routes/ssr.tsx</code>
+        form <code className="code">app/routes/form.tsx</code>
       </p>
 
       <div className="grid">

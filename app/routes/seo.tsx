@@ -57,11 +57,11 @@ export default function App() {
   return (
     <main className="main">
       <h1 className="title">
-        Welcome to <a>Remix!</a>
+        演示 <a>SEO</a>
       </h1>
 
       <p className="description">
-        同构 <code className="code">app/routes/ssr.tsx</code>
+        SEO <code className="code">app/routes/seo.tsx</code>
       </p>
 
       <div className="grid">
