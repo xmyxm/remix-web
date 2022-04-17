@@ -21,6 +21,11 @@
   border: 1px solid #e0e0e6;
 }
 
+.name-val::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #e1e1e1;
+}
+
 .name-error {
   border: 1px solid red;
 }

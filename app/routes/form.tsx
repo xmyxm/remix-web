@@ -30,7 +30,7 @@ export const action: ActionFunction = async ({ request }) => {
   if (username) {
     return redirect('/')
   } else {
-    const errors = { username: "username is required" };
+    const errors = { username: "name is required" };
     return json<ActionData>(errors);
   }
 };
@@ -48,7 +48,7 @@ export const loader: LoaderFunction = () => {
 
 export default function Login() {
   // 表单提交返回数据
-  const actionData = useActionData<ActionData>();
+  const errors = useActionData<ActionData>();
   const [searchParams] = useSearchParams();
   const { name } = useLoaderData<LoaderData>();
   return (
@@ -73,7 +73,8 @@ export default function Login() {
             </label>
             <input
               type="text"
-              className={ actionData?.username ? "name-val name-error" : "name-val" }
+              className={errors?.username ? "name-val name-error" : "name-val"}
+              placeholder={ errors?.username || '' }
               id="username-input"
               name="username"
               defaultValue={name}
