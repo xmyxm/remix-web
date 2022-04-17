@@ -46,7 +46,7 @@ export const loader: LoaderFunction = () => {
   return json(data, { status: 200 });
 };
 
-export default function Login() {
+export default function Home() {
   // 表单提交返回数据
   const errors = useActionData<ActionData>();
   const [searchParams] = useSearchParams();

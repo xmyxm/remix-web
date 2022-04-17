@@ -57,6 +57,11 @@ const entryList = [
     content: "嵌套路由报错",
     src: "/error",
   },
+  {
+    title: "API请求",
+    content: "API",
+    src: "/fetch",
+  },
 ];
 
 export default function Index() {
