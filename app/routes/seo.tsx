@@ -51,7 +51,7 @@ export const loader: LoaderFunction = async () => {
   return json(data);
 };
 
-export default function App() {
+export default function SEO() {
   const { title, content } = useLoaderData<ResData>();
 
   return (

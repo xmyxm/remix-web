@@ -33,10 +33,21 @@ const entryList = [
     src: "/doc/123",
   },
   {
+    title: "Route",
+    content: "多级路由参数",
+    src: "/3/53826",
+  },
+  {
     title: "Outlet",
     content: "嵌套路由",
     src: "/note",
   },
+  {
+    title: "文件API",
+    content: "文件",
+    src: "/book.rss",
+  },
+  
 ];
 
 export default function Index() {
