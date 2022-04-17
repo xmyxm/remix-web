@@ -20,7 +20,11 @@ export const links: LinksFunction = () => {
 };
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return {
+    title: "New Remix App",
+    charset: "utf-8",
+    viewport: "width=device-width,initial-scale=1"
+  };
 };
 
 // <Script /> 标签决定了我们页面是否引入样式文件

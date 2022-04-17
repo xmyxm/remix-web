@@ -1,14 +1,14 @@
-import type { LoaderFunction } from "remix";
 import { useState, useCallback } from "react"
 import axios from 'axios'
-import { useLoaderData, json, Link, ActionFunction } from "remix";
+import { useLoaderData, json, Link, ActionFunction, LoaderFunction } from "remix";
 type ResumeData = {
   skills: Array<string>;
 };
 
 // 接收非 GET 请求（POST、PUT、PATCH、DELETE）
 export const action: ActionFunction = async ({ request }) => {
-  console.log(`执行 action：${request.url}`);
+  const cookie = request.headers.get("cookie");
+  console.log(`执行 action：${request.url}，cookie：${cookie}`);
   const data = { dateTime: Date.now() };
   return json(data, { status: 200 });
 };
@@ -27,7 +27,7 @@ export default function ResumeIndex() {
   const [dateInfo, setDateTime] = useState({ dateTime: '' })
   
   const btnClick = useCallback(() => { 
-    const url = false ? '/api/posttime' : 'ssr'
+    const url = true ? '/api/posttime' : 'ssr'
     axios.post(url).then(res => {
       if (res?.data?.data?.dateTime) {
         setDateTime(res.data.data)
