@@ -1,5 +1,13 @@
 import { Outlet, Link } from "remix";
 
+export function headers() {
+  // 设置响应头的返回时间，这里是秒
+  return {
+    "X-Stretchy-Pants": "its for fun",
+    "Cache-Control": "max-age=300, s-maxage=3600",
+  };
+}
+
 export default function Note() {
 
   return (
