@@ -16,17 +16,19 @@ export const action: ActionFunction = async ({ request }) => {
 // 这里的loader是被后端API钩子useLoaderData调用的，所以看不到使用
 export const loader: LoaderFunction = () => {
   const data: ResumeData = {
-    skills: ["JavaScript", "CSS/HTML", "React", "Remix"],
+    skills: ["JavaScript", "CSS/HTML", "React", "Remix", "test-ssr"],
   };
   return json(data);
 };
 
 export default function ResumeIndex() {
+  // 读取 loader 函数返回数据
   const resume = useLoaderData<ResumeData>();
   const [dateInfo, setDateTime] = useState({ dateTime: '' })
   
   const btnClick = useCallback(() => { 
-    axios.post('/api/posttime').then(res => {
+    const url = true ? '/api/posttime' : 'ssr'
+    axios.post(url).then(res => {
       if (res?.data?.data?.dateTime) {
         setDateTime(res.data.data)
       }
