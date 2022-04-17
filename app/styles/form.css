@@ -20,3 +20,7 @@
   text-align: inherit;
   border: 1px solid #e0e0e6;
 }
+
+.name-error {
+  border: 1px solid red;
+}

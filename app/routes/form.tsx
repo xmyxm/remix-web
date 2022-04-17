@@ -1,7 +1,9 @@
 import type { ActionFunction, LoaderFunction, LinksFunction } from "remix";
 import {
   useActionData,
+  Form,
   json,
+  redirect,
   Link,
   useLoaderData,
   useSearchParams,
@@ -18,15 +20,19 @@ export const links: LinksFunction = () => {
 };
 
 type ActionData = {
-  content: string;
+  username: string;
 };
 
 export const action: ActionFunction = async ({ request }) => {
   console.log("form 表单条会走页面的action处理文件");
   const form = await request.formData();
-  const name = form.get("name");
-  const data = { name };
-  return json(data, { status: 200 });
+  const username = form.get("username");
+  if (username) {
+    return redirect('/')
+  } else {
+    const errors = { username: "username is required" };
+    return json<ActionData>(errors);
+  }
 };
 
 type LoaderData = {
@@ -35,12 +41,13 @@ type LoaderData = {
 // 这里的loader是被后端API钩子useLoaderData调用的，所以看不到使用
 export const loader: LoaderFunction = () => {
   const data: LoaderData = {
-    name: "loader",
+    name: "",
   };
   return json(data, { status: 200 });
 };
 
 export default function Login() {
+  // 表单提交返回数据
   const actionData = useActionData<ActionData>();
   const [searchParams] = useSearchParams();
   const { name } = useLoaderData<LoaderData>();
@@ -60,13 +67,13 @@ export default function Login() {
           <p>发送请求</p>
         </Link>
         <div className="card">
-          <form method="post">
+          <Form method="post">
             <label className="name-text" htmlFor="username-input">
               Username:
             </label>
             <input
               type="text"
-              className="name-val"
+              className={ actionData?.username ? "name-val name-error" : "name-val" }
               id="username-input"
               name="username"
               defaultValue={name}
@@ -74,7 +81,7 @@ export default function Login() {
             <button type="submit" className="btn">
               Submit
             </button>
-          </form>
+          </Form>
         </div>
       </div>
     </main>

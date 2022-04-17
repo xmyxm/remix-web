@@ -27,6 +27,11 @@ const entryList = [
     content: "表单提交",
     src: "/form",
   },
+  {
+    title: "Route",
+    content: "参数路由",
+    src: "/doc/123",
+  },
 ];
 
 export default function Index() {

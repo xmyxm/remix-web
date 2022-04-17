@@ -14,16 +14,16 @@ export default function JokeRoute() {
   return (
     <main className="main">
       <h1 className="title">
-        Welcome to <a>Remix!</a>
+       演示 <a>参数路由</a>
       </h1>
 
       <p className="description">
-        <code className="code">app/routes/index.tsx</code>
+        <code className="code">app/routes/$id.tsx</code>
       </p>
 
       <div className="grid">
         <Link to="/" className="card">
-          <h2>动态路由 &rarr;</h2>
+          <h2>参数路由 &rarr;</h2>
           <p>动态参数：{data.id}</p>
         </Link>
       </div>
