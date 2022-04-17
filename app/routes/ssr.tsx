@@ -6,14 +6,14 @@ type ResumeData = {
   skills: Array<string>;
 };
 
-// 在 Remix 中，你的前端组件也是它自己的 API 路由
+// 接收非 GET 请求（POST、PUT、PATCH、DELETE）
 export const action: ActionFunction = async ({ request }) => {
   console.log(`执行 action：${request.url}`);
   const data = { dateTime: Date.now() };
   return json(data, { status: 200 });
 };
 
-// 这里的loader是被后端API钩子useLoaderData调用的，所以看不到使用
+// “加载器”函数，该函数将在渲染之前在服务器上调用以向路由提供数据
 export const loader: LoaderFunction = () => {
   const data: ResumeData = {
     skills: ["JavaScript", "CSS/HTML", "React", "Remix", "test-ssr"],
@@ -27,7 +27,7 @@ export default function ResumeIndex() {
   const [dateInfo, setDateTime] = useState({ dateTime: '' })
   
   const btnClick = useCallback(() => { 
-    const url = true ? '/api/posttime' : 'ssr'
+    const url = false ? '/api/posttime' : 'ssr'
     axios.post(url).then(res => {
       if (res?.data?.data?.dateTime) {
         setDateTime(res.data.data)

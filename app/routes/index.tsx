@@ -32,6 +32,11 @@ const entryList = [
     content: "参数路由",
     src: "/doc/123",
   },
+  {
+    title: "Outlet",
+    content: "嵌套路由",
+    src: "/note",
+  },
 ];
 
 export default function Index() {
