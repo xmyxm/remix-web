@@ -1,5 +1,5 @@
 import type { LinksFunction } from "remix";
-import { Link } from "remix";
+import { Link, useLoaderData } from "remix";
 import indexCssUrl from "../styles/index.css";
 
 export const links: LinksFunction = () => {
@@ -47,10 +47,22 @@ const entryList = [
     content: "文件",
     src: "/book.rss",
   },
-  
+  {
+    title: "异常处理",
+    content: "嵌套路由报错",
+    src: "/catch",
+  },
+  {
+    title: "异常处理",
+    content: "嵌套路由报错",
+    src: "/error",
+  },
 ];
 
 export default function Index() {
+
+  const data = useLoaderData<{}>();
+
   return (
     <main className="main">
       <h1 className="title">
